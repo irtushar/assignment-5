@@ -98,3 +98,8 @@ function addToCallHistory(serviceName, serviceNumber) {
   `;
   document.getElementById("call-history").appendChild(historyElement);
 }
+
+//  Clear Call History
+document.getElementById("btn-clear").addEventListener("click", function () {
+  document.getElementById("call-history").innerHTML = "";
+});
