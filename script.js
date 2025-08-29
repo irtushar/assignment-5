@@ -1,4 +1,4 @@
-//  Header Counters
+// Header Section
 let heartCount = 0;
 let coinCount = 100;
 let copyCount = 0;
@@ -10,10 +10,13 @@ function updateCounters() {
 }
 updateCounters();
 
-//  Card Actions
+// Card Section
 document
   .getElementById("parent-card-container")
   .addEventListener("click", function (event) {
+    const card = event.target.closest(".card");
+    if (!card) return;
+
     // Heart Button
     if (event.target.classList.contains("heart-btn")) {
       heartCount++;
@@ -29,9 +32,8 @@ document
       }
     }
 
-    // 📞 Call Button
+    // Call Button
     if (event.target.closest(".btn-call")) {
-      const card = event.target.closest(".bg-base-100");
       const serviceName = card.querySelector("h3").innerText;
       const serviceNumber = card.querySelector(".service-number").innerText;
 
@@ -45,13 +47,11 @@ document
       }
     }
 
-    // 📋 Copy Button
+    //Copy Button
     if (event.target.closest(".btn-copy")) {
-      const card = event.target.closest(".bg-base-100");
       const serviceName = card.querySelector("h3").innerText;
       const serviceNumber = card.querySelector(".service-number").innerText;
 
-      // Use modern clipboard API if available
       if (navigator.clipboard) {
         navigator.clipboard
           .writeText(serviceNumber)
@@ -60,18 +60,17 @@ document
             updateCounters();
             alert(`${serviceName} ("${serviceNumber}") copied.`);
           })
-          .catch((err) => {
-            console.error("Clipboard error:", err);
+          .catch(() => {
             fallbackCopyTextToClipboard(serviceNumber, serviceName);
           });
       } else {
-        // Fallback for older browsers
         fallbackCopyTextToClipboard(serviceNumber, serviceName);
       }
     }
   });
 
-//  Fallback Copy Function
+// Copy Function
+
 function fallbackCopyTextToClipboard(text, serviceName) {
   const textArea = document.createElement("textarea");
   textArea.value = text;
@@ -84,22 +83,22 @@ function fallbackCopyTextToClipboard(text, serviceName) {
   alert(`${serviceName} ("${text}") copied.`);
 }
 
-//  Add Call to History
+// Add Call to History
 function addToCallHistory(serviceName, serviceNumber) {
   const historyElement = document.createElement("div");
+  historyElement.className =
+    "bg-white border border-gray-200 rounded-xl shadow-sm p-3 flex justify-between items-center";
   historyElement.innerHTML = `
-    <div class="bg-[#fafafa] p-4 flex justify-between items-center rounded-3xl my-5">
-      <div>
-        <p class="font-semibold">${serviceName}</p>
-        <p>${serviceNumber}</p>
-      </div>
-      <div>${new Date().toLocaleTimeString()}</div>
+    <div>
+      <p class="font-semibold">${serviceName}</p>
+      <p class="text-gray-600">${serviceNumber}</p>
     </div>
+    <div class="text-gray-500 text-sm">${new Date().toLocaleTimeString()}</div>
   `;
-  document.getElementById("call-history").appendChild(historyElement);
+  document.getElementById("call-history").prepend(historyElement);
 }
 
-//  Clear Call History
+// Clear Call History
 document.getElementById("btn-clear").addEventListener("click", function () {
   document.getElementById("call-history").innerHTML = "";
 });

@@ -98,7 +98,7 @@
       </div>
     </section>
 
-    <!-- Main Grid: Cards + Call History -->
+    <!-- Cards + Call History Section -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-11/12 mx-auto my-6">
       <!-- Cards Section -->
       <section
@@ -106,8 +106,8 @@
         class="md:col-span-9 rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-5"
       >
         <!-- Card 1 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/emergency.png" alt="" />
@@ -134,8 +134,8 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/police.png" alt="" />
@@ -164,8 +164,8 @@
           </div>
         </div>
         <!-- Card 3 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/fire-service.png" alt="" />
@@ -192,8 +192,8 @@
           </div>
         </div>
         <!-- Card 4 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/ambulance.png" alt="" />
@@ -220,8 +220,8 @@
           </div>
         </div>
         <!-- Card 5  -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/emergency.png" alt="" />
@@ -249,8 +249,8 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/emergency.png" alt="" />
@@ -277,8 +277,8 @@
           </div>
         </div>
         <!-- Card 7 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/emergency.png" alt="" />
@@ -305,8 +305,8 @@
           </div>
         </div>
         <!-- Card 8 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/emergency.png" alt="" />
@@ -333,8 +333,8 @@
           </div>
         </div>
         <!-- Card 9 -->
-        <div class="bg-base-100 rounded-xl">
-          <div class="card-body">
+        <div class="card bg-white rounded-xl shadow-md border border-gray-200">
+          <div class="card-body p-4">
             <div class="flex justify-between items-center">
               <figure class="w-[3.2rem] p-3 bg-[#ffe3e2] rounded-2xl">
                 <img src="./assets/emergency.png" alt="" />
@@ -363,11 +363,16 @@
       </section>
 
       <!-- Call History Section -->
-      <aside class="md:col-span-3 p-4 bg-white rounded-2xl h-fit">
-        <div class="flex justify-between items-center">
+      <aside
+        class="md:col-span-3 bg-white rounded-2xl border border-gray-300 shadow-md flex flex-col"
+        style="height: 100%"
+      >
+        <div
+          class="flex justify-between items-center p-4 border-b border-gray-200"
+        >
           <div class="flex items-center gap-3">
             <i class="fa-solid fa-clock-rotate-left"></i>
-            <h1>Call History</h1>
+            <h1 class="font-bold text-lg">Call History</h1>
           </div>
           <button
             id="btn-clear"
@@ -376,7 +381,11 @@
             Clear
           </button>
         </div>
-        <div id="call-history"></div>
+
+        <div
+          id="call-history"
+          class="flex-1 overflow-y-auto p-4 space-y-3"
+        ></div>
       </aside>
     </div>
     <script src="./script.js"></script>
